@@ -1,0 +1,27 @@
+# Python
+*.pyc
+__pycache__/
+venv/
+*.egg-info/
+dist/
+build/
+.venv/
+*.egg
+.DS_store
+.env
+# Django
+*.log
+*.pot
+*.pyc
+local_settings.py
+db.sqlite3
+media/images
+media/photos
+static/
+*socket
+.env
+.env.prod
+nginx/conf.d
+ssl/
+*.sql*
+databases.json
