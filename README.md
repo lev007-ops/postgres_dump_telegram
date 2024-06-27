@@ -56,29 +56,18 @@ LOG_FILE=/path/to/backup_log.log  # Optional
            "name": "dbname1",
            "user": "user1",
            "host": "hostname1",
-           "port": "5432"
+           "port": "5432",
+           "password": "password1"
        },
        {
            "name": "dbname2",
            "user": "user2",
            "host": "hostname2",
-           "port": "5432"
+           "port": "5432",
+           "password": "password2"
        }
    ]
    ```
-
-1. Set up the .pgpass file in the user's home directory for automatic connection to PostgreSQL databases:
-
-    ```bash
-    hostname1:5432:dbname1:user1:password1
-    hostname2:5432:dbname2:user2:password2
-    ```
-
-    Ensure the file has the correct permissions:
-
-    ```bash
-    chmod 600 ~/.pgpass
-    ```
 
 ## Usage
 
