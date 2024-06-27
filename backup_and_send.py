@@ -26,9 +26,11 @@ def read_databases(path: str):
 
 def create_dump(db_info):
     dump_file = f'{DUMP_DIR}/{db_info["name"]}_{datetime.datetime.now().strftime("%Y%m%d")}.sql'
+    env = os.environ.copy()
+    env['PGPASSWORD'] = db_info['password']
     logger.info(f"Creating dump for database {db_info['name']}")
     subprocess.run(['pg_dump', '-U', db_info['user'], '-h', db_info['host'],
-                   '-p', db_info['port'], db_info['name'], '-f', dump_file])
+                   '-p', db_info['port'], db_info['name'], '-f', dump_file], env=env)
     return dump_file
 
 
