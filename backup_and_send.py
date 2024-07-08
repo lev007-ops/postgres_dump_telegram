@@ -36,7 +36,7 @@ def create_dump(db_info):
 
 def compress_file(file_path):
     logger.info(f"Compressing file {file_path}")
-    subprocess.run(['gzip', file_path])
+    subprocess.run(['gzip', file_path, '-f'])
     return f'{file_path}.gz'
 
 
