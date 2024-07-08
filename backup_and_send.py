@@ -57,11 +57,12 @@ def delete_old_dumps(directory, days=7):
     for filename in os.listdir(directory):
         file_path = os.path.join(directory, filename)
         if os.path.isfile(file_path):
-            file_mtime = datetime.datetime.fromtimestamp(
-                os.path.getmtime(file_path))
-            if file_mtime < cutoff:
-                logger.info(f"Deleting old dump file {file_path}")
-                os.remove(file_path)
+            if file_path.endswith(".sql") or file_path.endswith(".gz"):
+                file_mtime = datetime.datetime.fromtimestamp(
+                    os.path.getmtime(file_path))
+                if file_mtime < cutoff:
+                    logger.info(f"Deleting old dump file {file_path}")
+                    os.remove(file_path)
 
 
 def dump_and_send():
